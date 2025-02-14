@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>ask her out</title>
+</head>
+<body>
+    
+    <div class="container">
+        <div></div>
+        <img src="kiss.gif" alt="">
+        <h1>hehe i knew it! :D</h1>
+        <p>yay! i love you so much hallie! &lt;3</p>
+
+        <div class="btn">
+            <!-- From Uiverse.io by Voxybuns --> 
+            <button>
+                <a href="index.html"><span class="button_top"> try again? </span></a>
+            </button>
+        </div>
+
+        <span class="time">see you in:</span>
+        <b><div id="countdown">
+        </div></b>
+    </div>
+    
+
+    <script>
+        function countdown() {
+            const now = new Date();
+            const tomorrow = new Date();
+            tomorrow.setDate(now.getDate() + 1);
+            tomorrow.setHours(17, 30, 0, 0); // 5:30 PM CST
+
+            const distance = tomorrow - now;
+
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("countdown").innerHTML = hours + "h " + minutes + "m " + seconds + "s ";
+
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("countdown").innerHTML = "EXPIRED";
+            }
+        }
+
+        const x = setInterval(countdown, 1000);
+    </script>
+
+</body>
+</html>
